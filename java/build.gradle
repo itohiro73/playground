@@ -1,0 +1,38 @@
+group 'jp.itohiro.playground'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+ext {
+    reactorVersion = '2.0.3.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.goldmansachs:gs-collections:7.0.0"
+    compile "com.google.inject:guice:4.0"
+    compile "org.jsoup:jsoup:1.7.3"
+    compile "org.postgresql:postgresql:9.4-1201-jdbc41"
+    compile "io.projectreactor:reactor-core:$reactorVersion"
+    compile "io.projectreactor:reactor-stream:$reactorVersion"
+    compile "org.apache.spark:spark-core_2.10:1.4.1"
+    compile "com.github.jnr:jnr-ffi:2.0.3"
+    compile "com.github.jnr:jnr-posix:3.0.17"
+    compile "org.springframework:spring-context:4.2.3.RELEASE"
+
+
+    testCompile "junit:junit:4.12"
+    testCompile "com.h2database:h2:1.4.187"
+}
+
+jar {
+    manifest {
+        attributes "Main-Class" : "jp.itohiro.playground.jnr.Cat"
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}

@@ -1,0 +1,3 @@
+jp.itohiro.playground.serviceloader.H2Driver
+jp.itohiro.playground.serviceloader.MySqlDriver
+jp.itohiro.playground.serviceloader.PostgreSqlDriver
