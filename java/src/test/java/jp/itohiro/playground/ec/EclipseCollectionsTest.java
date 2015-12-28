@@ -1,14 +1,14 @@
-package jp.itohiro.playground.gsc;
+package jp.itohiro.playground.ec;
 
-import com.gs.collections.api.bag.MutableBag;
-import com.gs.collections.api.bag.primitive.MutableCharBag;
-import com.gs.collections.api.list.MutableList;
-import com.gs.collections.api.map.MutableMap;
-import com.gs.collections.impl.block.factory.Functions0;
-import com.gs.collections.impl.factory.Lists;
-import com.gs.collections.impl.string.immutable.CharAdapter;
-import com.gs.collections.impl.string.immutable.CodePointAdapter;
-import com.gs.collections.impl.string.immutable.CodePointList;
+import org.eclipse.collections.api.bag.MutableBag;
+import org.eclipse.collections.api.bag.primitive.MutableCharBag;
+import org.eclipse.collections.api.list.MutableList;
+import org.eclipse.collections.api.map.MutableMap;
+import org.eclipse.collections.impl.block.factory.Functions0;
+import org.eclipse.collections.impl.factory.Lists;
+import org.eclipse.collections.impl.string.immutable.CharAdapter;
+import org.eclipse.collections.impl.string.immutable.CodePointAdapter;
+import org.eclipse.collections.impl.string.immutable.CodePointList;
 import org.junit.Test;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 /**
  * Created by hiroshi on 12/14/15.
  */
-public class GsCollectionsTest {
+public class EclipseCollectionsTest {
 
     @Test
     public void testGSC(){
