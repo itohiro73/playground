@@ -1,6 +1,7 @@
 package jp.itohiro.playground.io;
 
 import java.io.*;
+import java.nio.charset.Charset;
 
 /**
  * Created by hiroshi on 6/2/15.
@@ -11,8 +12,9 @@ public class ConsoleApp {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
 
         int input;
-        while((input = in.read()) != -1){
-
+        while((input = in.read()) != '\n'){
+            bout.write(input);
         }
+        System.out.println(bout.toString(Charset.defaultCharset().name()));
     }
 }

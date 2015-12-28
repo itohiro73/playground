@@ -22,6 +22,7 @@ public class ExecutorHelloWorld {
 
         Future<String> future = executorService.submit(callable);
         String result = future.get();
+        System.out.println("Result is: " + result + ", batches have: " + batches.get(0));
     }
 
     private static String callDatabase() throws InterruptedException {
