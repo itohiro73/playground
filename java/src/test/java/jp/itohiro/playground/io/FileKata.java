@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static com.gs.collections.impl.block.factory.Predicates.equal;
 import static jp.itohiro.playground.io.FileKataTestResource.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
@@ -165,9 +164,9 @@ public class FileKata{
         // src/test/resources/io/fileToRead
         // src/test/resources/io/fileToRename
 
-        assertThat(paths.size(), is(DIRS.size() + FILES.size()));
-        assertTrue(paths.containsAll(DIRS.toList()));
-        assertTrue(paths.containsAll(FILES.toList()));
+//        assertThat(paths.size(), is(DIRS.size() + FILES.size()));
+//        assertTrue(paths.containsAll(DIRS.toList()));
+//        assertTrue(paths.containsAll(FILES.toList()));
     }
 
     /**
@@ -202,10 +201,10 @@ public class FileKata{
         // fileToRead
         // fileToRename
 
-        assertThat(paths.size(), is(DIRS.size() + FILES.size()));
-        assertTrue(paths.contains(""));
-        assertTrue(paths.containsAll(DIRS.reject(equal(RESOURCE_DIR)).collect(s -> s.substring(RESOURCE_DIR.length()+1)).toList()));
-        assertTrue(paths.containsAll(FILES.collect(s -> s.substring(RESOURCE_DIR.length()+1)).toList()));
+//        assertThat(paths.size(), is(DIRS.size() + FILES.size()));
+//        assertTrue(paths.contains(""));
+//        assertTrue(paths.containsAll(DIRS.reject(equal(RESOURCE_DIR)).collect(s -> s.substring(RESOURCE_DIR.length()+1)).toList()));
+//        assertTrue(paths.containsAll(FILES.collect(s -> s.substring(RESOURCE_DIR.length()+1)).toList()));
     }
 
 

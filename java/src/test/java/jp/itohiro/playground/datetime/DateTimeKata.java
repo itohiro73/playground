@@ -1,20 +1,14 @@
 package jp.itohiro.playground.datetime;
 
-import com.gs.collections.api.bag.primitive.MutableCharBag;
-import com.gs.collections.impl.string.immutable.CharAdapter;
-import com.gs.collections.impl.string.immutable.CodePointAdapter;
-import com.gs.collections.impl.string.immutable.CodePointList;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.*;
-import java.time.chrono.ChronoLocalDate;
 import java.time.chrono.Chronology;
 import java.time.chrono.JapaneseDate;
 import java.time.chrono.JapaneseEra;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-import java.util.Optional;
 
 public class DateTimeKata {
     @Test

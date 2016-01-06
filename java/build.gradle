@@ -26,9 +26,9 @@ dependencies {
     compile "com.github.jnr:jnr-posix:3.0.17"
     compile "org.springframework:spring-context:4.2.3.RELEASE"
     compile 'net.jcip:jcip-annotations:1.0'
+    compile "com.h2database:h2:1.4.190"
 
     testCompile "junit:junit:4.12"
-    testCompile "com.h2database:h2:1.4.187"
 }
 
 jar {
