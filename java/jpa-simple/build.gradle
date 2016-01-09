@@ -1,0 +1,29 @@
+group 'jp.itohiro.playground'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+
+ext {
+    reactorVersion = '2.0.3.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "com.h2database:h2:1.4.190"
+    compile 'org.eclipse.persistence:eclipselink:2.5.1'
+
+    testCompile "junit:junit:4.12"
+}
+
+jar {
+    manifest {
+        attributes "Main-Class" : "jp.itohiro.playground.jpa.MainApp"
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
