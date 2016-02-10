@@ -30,4 +30,24 @@ object MyModule {
   def main(args: Array[String]): Unit =
     println(formatResult("absolute value", -42, abs))
     println(formatResult("factorial", 7, factorial))
+
+  def findFirstIndex(ss: Array[String], key: String): Int = {
+    @annotation.tailrec
+    def loop(n: Int): Int =
+      if (n >= ss.length) -1
+      else if (ss(n) == key) n
+      else loop(n + 1)
+
+    loop(0)
+  }
+
+  def findFirstIndex[A](aa: Array[A], p: A => Boolean): Int = {
+    @annotation.tailrec
+    def loop(n: Int): Int =
+    if (n >= aa.length) -1
+    else if (p(aa(n))) n
+    else loop(n + 1)
+
+    loop(0)
+  }
 }
