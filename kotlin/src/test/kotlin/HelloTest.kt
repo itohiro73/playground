@@ -5,6 +5,4 @@ class HelloTest {
     @Test fun helloTest() {
         assertEquals("Hello", hello())
     }
-
-    private fun hello(): String? = "Hello"
 }
