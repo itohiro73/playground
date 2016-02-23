@@ -1,3 +1,5 @@
+fun hello(): String = "Hello"
+
 fun toJSON(collection : Collection<Int>) : String {
     val sb = StringBuilder()
     sb.append("[")
@@ -12,3 +14,6 @@ fun toJSON(collection : Collection<Int>) : String {
     sb.append("]")
     return sb.toString()
 }
+
+fun joinToString(collection : Collection<String>)
+    = collection.joinToString(prefix = "[", postfix = "]")
