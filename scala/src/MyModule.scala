@@ -27,9 +27,14 @@ object MyModule {
     msg.format(s, i, func(i))
   }
 
-  def main(args: Array[String]): Unit =
+  def main(args: Array[String]): Unit = {
     println(formatResult("absolute value", -42, abs))
     println(formatResult("factorial", 7, factorial))
+    println("Partial apply: 1 + 2 = " + partial1(1, add)(2))
+    println("Curry: 1 + 2 = " + curry(add)(1)(2))
+    println("Uncurry: 1 + 2 = " + uncurry(addCurry)(1, 2))
+    println("Composite: " + composite(toUpper, hello)("World"))
+  }
 
   def findFirstIndex(ss: Array[String], key: String): Int = {
     @annotation.tailrec
@@ -50,4 +55,31 @@ object MyModule {
 
     loop(0)
   }
+
+  def partial1[A, B, C](a: A, f: (A, B) => C): B => C =
+    (b: B) => f(a, b)
+
+  def add(a: Int, b: Int): Int = {
+    a + b
+  }
+
+  def curry[A, B, C](f: (A, B) => C): A => (B => C) =
+    (a: A) => (b: B) => f(a, b)
+
+  def uncurry[A, B, C](f: A => B => C): (A, B) => C =
+    (a: A, b: B) => f(a)(b)
+
+  def addCurry(a: Int): Int => Int =
+    (b: Int) => a + b
+
+  def composite[A, B, C](f: B => C, g: A => B): A => C =
+    (a: A) => f(g(a))
+
+  def hello(a: String): String =
+    "Hello " + a
+
+  def toUpper(b: String): String =
+    b.toUpperCase
+
+
 }
