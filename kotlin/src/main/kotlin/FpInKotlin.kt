@@ -27,3 +27,19 @@ val abs: (n: Int) -> Int = {
 fun formatResult(s: String, i: Int, f: (Int) -> Int): String {
     return "The " + s + " of " + i + " is " + f(i)
 }
+
+fun <A, B, C> partial1(a: A, f: (A, B) -> C): (B) -> C {
+    return {b: B -> f(a, b)}
+}
+
+fun <A, B, C> curry(f: (A, B) -> C): (A) -> (B) -> C {
+    return {a: A -> {b: B -> f(a, b)}}
+}
+
+fun <A, B, C> uncurry(f: (A) -> (B) -> C): (A, B) -> C {
+    return {a: A, b: B -> f(a)(b)}
+}
+
+fun <A, B, C> compose(f: (B) -> C, g: (A) -> B): (A) -> C {
+    return {a -> f(g(a))}
+}
