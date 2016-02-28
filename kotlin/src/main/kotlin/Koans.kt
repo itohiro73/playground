@@ -17,3 +17,9 @@ fun toJSON(collection : Collection<Int>) : String {
 
 fun joinToString(collection : Collection<String>)
     = collection.joinToString(prefix = "[", postfix = "]")
+
+val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
+
+fun getPattern(): String {
+    return """\d{2} ${month} \d{4}"""
+}
