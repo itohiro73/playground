@@ -23,3 +23,9 @@ val month = "(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)"
 fun getPattern(): String {
     return """\d{2} ${month} \d{4}"""
 }
+
+data class Person(val name: String, val age: Int)
+
+fun getPeople(): List<Person> {
+    return listOf(Person("Alice", 29), Person("Bob", 31))
+}

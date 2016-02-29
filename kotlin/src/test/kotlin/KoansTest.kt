@@ -32,4 +32,7 @@ class KoansTest {
         assertFalse("The pattaern should not match $data", data.matches(getPattern().toRegex()))
     }
 
+    @Test fun testListOfPeople() {
+        assertEquals("[Person(name=Alice, age=29), Person(name=Bob, age=31)]", getPeople().toString())
+    }
 }
