@@ -19,4 +19,14 @@ object List {
   def apply[A](as: A*): List[A] =
     if (as.isEmpty) Nil
     else Cons(as.head, apply(as.tail: _*))
+
+  def tail[A](as: List[A]): List[A] = as match {
+    case Nil => Nil // answer throws error i.e. sys.error("trail of empty list")
+    case Cons(_, xs) => xs
+  }
+
+  def setHead[A](as: List[A], z: A): List[A] = as match {
+    case Nil => Nil // answer throws error i.e. sys.error("setHead on empty list")
+    case Cons(_, xs) => Cons(z, xs)
+  }
 }
