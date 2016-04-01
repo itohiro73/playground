@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+    <incomeExpense id="1" item="TEST" type="TEST" incomeExpense="TEST" price="100" date="2015-07-03 00:00:00" updateTime="2016-04-01 00:00:00"/>
+    <user id="1" userId="testId" firstName="Taro" lastName="Tanaka" birthDate="1996-08-18 00:00:00"/>
+</dataset>
