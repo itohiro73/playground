@@ -33,6 +33,13 @@ dependencies {
     testCompile 'org.testng:testng:6.9.10'
 }
 
+jar {
+    manifest {
+        attributes "Main-Class" : "jp.itohiro.playground.jnr.Cat"
+    }
+    from configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+}
+
 tasks.withType(FindBugs) {
     reports {
         xml.enabled = false
