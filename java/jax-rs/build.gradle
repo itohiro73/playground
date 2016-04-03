@@ -1,0 +1,21 @@
+group 'jp.itohiro.playground'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'jetty'
+
+sourceCompatibility = 1.8
+httpPort=8979
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    all*.exclude module: 'servlet-api'
+}
+
+dependencies {
+    compile 'org.glassfish.jersey.containers:jersey-container-servlet:2.22.2'
+    testCompile 'junit:junit:4.12'
+}
