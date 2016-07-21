@@ -28,6 +28,7 @@ dependencies {
     compile "org.springframework:spring-context:4.2.3.RELEASE"
     compile 'net.jcip:jcip-annotations:1.0'
     compile "com.h2database:h2:1.4.190"
+    compile "org.bitcoinj:bitcoinj-core:0.13.6"
 
     testCompile "junit:junit:4.12"
     testCompile 'org.testng:testng:6.9.10'
