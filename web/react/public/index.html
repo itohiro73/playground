@@ -1,0 +1,74 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Tutorial</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.2.1/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.6.2/remarkable.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+      var CommentBox = React.createClass({
+        render: function() {
+          return (
+            <div className="commentBox">
+              Hello World!! This is the CommentBox!!
+              <h2>Comment List</h2>
+              <CommentList />
+              <CommentForm />
+            </div>
+          );
+        }
+      });
+
+      var CommentList = React.createClass({
+        render: function(){
+          return (
+            <div className="commentList">
+              <Comment author="Hiroshi Ito">This is my comment!</Comment>
+              <Comment author="Kaoru Ito">This is Kaoru&lsquo;s comment!</Comment>
+            </div>
+          );
+        }
+      });
+
+      var CommentForm = React.createClass({
+        render: function(){
+          return (
+            <div className="commentForm">
+              Hello World! This is the CommentForm!!
+            </div>
+          );
+        }
+      });
+
+      var Comment = React.createClass({
+        rawMarkup: function(){
+          var md =  new Remarkable();
+          var rawMarkup = md.render(this.props.children.toString());
+          return {__html: rawMarkup};
+        },
+        render: function(){
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+            </div>
+            <span dangerouslySetInnerHTML={this.rawMarkup()} />
+          );
+        }
+      });
+
+      ReactDOM.render(
+        <CommentBox />,
+        document.getElementById('content')
+      );
+    </script>
+  </body>
+</html>
