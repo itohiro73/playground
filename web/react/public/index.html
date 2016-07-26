@@ -18,6 +18,50 @@
         {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
       ];
 
+      var tabledata = {
+        title: {column1: "Author", column2: "Text"},
+        raws: [
+          {column1: "Pete Hunt", column2: "This is one comment"},
+          {column1: "Jordan Walke", column2: "This is *another* comment"}
+        ]
+      };
+
+      var MainArea = React.createClass({
+        render: function() {
+          return (
+            <div>
+              <CommentBox data={this.props.data}/>
+              <Table tabledata={this.props.tabledata}/>
+            </div>
+          )
+        }
+      });
+
+
+      var Table = React.createClass({
+        render: function(){
+          var tableRaws = this.props.tabledata.raws.map(function(raw){
+            return (
+                    <tr>
+                      <th>{raw.column1}</th>
+                      <th>{raw.column2}</th>
+                    </tr>
+            );
+          });
+          return (
+            <div>
+              <table>
+                <tr>
+                  <th>{this.props.tabledata.title.column1}</th>
+                  <th>{this.props.tabledata.title.column2}</th>
+                </tr>
+                {tableRaws}
+              </table>
+            </div>
+          )
+        }
+      });
+
       var CommentBox = React.createClass({
         render: function() {
           return (
@@ -77,7 +121,7 @@
       });
 
       ReactDOM.render(
-        <CommentBox data={data}/>,
+        <MainArea data={data} tabledata={tabledata}/>,
         document.getElementById('content')
       );
     </script>
