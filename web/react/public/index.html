@@ -62,6 +62,17 @@
         }
       });
 
+      var ListSurveys = React.createClass({
+        render: function() {
+          var props = {
+            one: 'foo',
+            two: 'bar'
+          };
+
+          return <SurveryTable {...props} />;
+        }
+      });
+
       var CommentBox = React.createClass({
         render: function() {
           return (
