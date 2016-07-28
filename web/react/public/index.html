@@ -12,6 +12,7 @@
   </head>
   <body>
     <div id="content"></div>
+    <div id="anotherContent"></div>
     <script type="text/babel">
       var data = [
         {id: 1, author: "Pete Hunt", text: "This is one comment"},
@@ -30,8 +31,9 @@
         render: function() {
           return (
             <div>
-              <CommentBox data={this.props.data}/>
-              <Table tabledata={this.props.tabledata}/>
+              <CommentBox url={this.props.url} pollInterval={this.props.pollInterval}/>
+              {//              <Table tabledata={this.props.tabledata}/>
+              }
             </div>
           )
         }
@@ -74,12 +76,39 @@
       });
 
       var CommentBox = React.createClass({
+        successAction: function(data){
+          this.setState({data: data});
+        },
+        errorAction: function(url, status, err){
+          console.error(url, status, err);
+        },
+        loadCommentsFromServer: function() {
+		  console.log('URL: ' + this.props.url);	
+          $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+              this.successAction(data);
+            }.bind(this),
+            error: function(xhr, status, err) {
+              this.errorAction(this.props.url, status, err.toString());
+            }.bind(this)
+          });
+        },
+        getInitialState: function() {
+          return {data: []}
+        },
+        componentDidMount: function() {
+          this.loadCommentsFromServer();
+          setInterval(this.loadCommentsFromServer, this.props.pollInterval)
+        },
         render: function() {
           return (
             <div className="commentBox">
               Hello World!! This is the CommentBox!!
               <h2>Comment List</h2>
-              <CommentList data={this.props.data}/>
+              <CommentList data={this.state.data}/>
               <CommentForm />
             </div>
           );
@@ -132,9 +161,14 @@
       });
 
       ReactDOM.render(
-        <MainArea data={data} tabledata={tabledata}/>,
+        <MainArea url="/api/comments" pollInterval={2000} tabledata={tabledata}/>,
         document.getElementById('content')
       );
+
+//      ReactDOM.render(
+//        <MainArea data={data} tabledata={tabledata}/>,
+//        document.getElementById('anotherContent')
+//      );
     </script>
   </body>
 </html>
