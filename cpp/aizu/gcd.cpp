@@ -1,24 +1,25 @@
 #include <iostream>
+#include <jmorecfg.h>
 
 using namespace std;
 
-int gcd(int x, int y);
+boolean isPrime(int x);
 
 int main()
 {
     int a, b;
     cin >> a >> b;
-    cout << gcd(a, b) << endl;
+    cout << isPrime(a) << endl;
 }
 
-int gcd(int a, int b)
+boolean isPrime(int a)
 {
     int x, y;
     if (a > b) x = a, y = b;
     else y = a, x = b;
     if(y != 0 && x / y > 0)
     {
-        return gcd(y, x % y);
+        return isPrime(y);
     }
     else
     {
