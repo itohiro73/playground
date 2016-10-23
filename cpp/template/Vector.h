@@ -65,4 +65,16 @@ public:
     int value() const { return value_;}
 };
 
+class String : public Object
+{
+    char* value_;
+public:
+    String(const char* str)
+    {
+        strcpy(value_ = new char[strlen(str) + 1], str);
+    }
+    ~String(){ delete[] value_;}
+
+    const char* value() const {return value_; }
+};
 #endif //CPP_VECTOR_H

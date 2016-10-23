@@ -31,6 +31,7 @@ int main()
     Vector v;
     v.add(new Integer(43));
     v.add(new Integer(12));
+    v.add(new String("mistake"));
     for (int i=0; i<v.size(); ++i)
     {
         Integer* ptr = (Integer*) v.at(i);
