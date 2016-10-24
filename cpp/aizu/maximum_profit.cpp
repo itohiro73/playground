@@ -1,21 +1,20 @@
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
 int main()
 {
-    int n, max, min, previous, current;
+    int n, max=INT_MIN, min;
     cin >> n;
-    cin >> previous;
-    cin >> current;
-    min = previous;
-    max = current;
-    for(int i = 2; i < n; i++)
+    cin >> min;
+    for(int i = 1; i < n; i++)
     {
-        previous = current;
+        int current, potentialMax;
         cin >> current;
-        if(current > max || previous == min) max = current;
-        else if (current < min && i < n-1) min = current;
+        potentialMax = current - min;
+        if(max < potentialMax) max = potentialMax;
+        if(min > current) min = current;
     }
-    cout << max - min << endl;
+    cout << max << endl;
 }
