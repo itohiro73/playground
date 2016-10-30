@@ -42,6 +42,15 @@ int main()
 
     bubbleSort(bubble_cards);
     shellSort(selection_cards);
+    for (int i = 0; i< bubble_cards.size(); i++)
+    {
+        if(bubble_cards[i]->name() != selection_cards[i]->name())
+        {
+            cout << "Not stable" << endl;
+            return 0;
+        }
+    }
+    cout << "Stable" << endl;
 }
 
 void bubbleSort(vector<Card *> &cards)
@@ -88,5 +97,5 @@ void shellSort(vector<Card *> &cards)
     {
         cout << ' ' << cards[i]->name();
     }
-    cout << endl << "Stable" << endl;
+    cout << endl;
 }
