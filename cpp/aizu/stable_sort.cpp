@@ -20,29 +20,31 @@ public:
     int value(){return value_;};
 };
 
-void bubbleSort(vector<Card *> cards);
+void bubbleSort(vector<Card *> &cards);
 
-void shellSort(vector<Card *> cards);
+void shellSort(vector<Card *> &cards);
 
 int main()
 {
     int length, count = 0;
     cin >> length;
 
-    vector<Card*> cards(length);
+    vector<Card*> bubble_cards(length);
+    vector<Card*> selection_cards(length);
 
     for (int i = 0; i < length; i++)
     {
         string card;
         cin >> card;
-        cards[i] = new Card(card);
+        bubble_cards[i] = new Card(card);
+        selection_cards[i] = new Card(card);
     }
 
-    bubbleSort(cards);
-    shellSort(cards);
+    bubbleSort(bubble_cards);
+    shellSort(selection_cards);
 }
 
-void bubbleSort(vector<Card *> cards)
+void bubbleSort(vector<Card *> &cards)
 {
     for(int i = 0; i < cards.size(); i++)
     {
@@ -64,7 +66,7 @@ void bubbleSort(vector<Card *> cards)
     cout << endl << "Stable" << endl;
 }
 
-void shellSort(vector<Card *> cards)
+void shellSort(vector<Card *> &cards)
 {
     for(int i = 0; i < cards.size(); i++)
     {
@@ -86,5 +88,5 @@ void shellSort(vector<Card *> cards)
     {
         cout << ' ' << cards[i]->name();
     }
-    cout << endl << "Stable" << endl; // fix this!
+    cout << endl << "Stable" << endl;
 }
