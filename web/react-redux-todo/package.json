@@ -1,0 +1,15 @@
+{
+  "name": "react-redux-todo",
+  "version": "0.0.1",
+  "description": "ToDo app",
+  "main": "webpack.config.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.21.0"
+  },
+  "scripts": {
+    "test": "webpack --debug"
+  },
+  "author": "Hiroshi Ito",
+  "license": "MIT"
+}
